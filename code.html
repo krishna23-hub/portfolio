@@ -1,0 +1,446 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Krishan Kant Sharma - Developer Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#005236",
+                        "on-error-container": "#ffdad6",
+                        "on-background": "#dae2fd",
+                        "secondary-fixed": "#6ffbbe",
+                        "tertiary": "#f8f4ff",
+                        "surface-dim": "#0b1326",
+                        "primary-fixed-dim": "#00dbe9",
+                        "on-tertiary": "#1000a9",
+                        "secondary-container": "#00a572",
+                        "secondary-fixed-dim": "#4edea3",
+                        "on-tertiary-container": "#494bd7",
+                        "surface-container-highest": "#2d3449",
+                        "surface-container-low": "#131b2e",
+                        "secondary": "#4edea3",
+                        "outline-variant": "#3b494b",
+                        "on-secondary": "#003824",
+                        "on-primary": "#00363a",
+                        "error": "#ffb4ab",
+                        "on-surface": "#dae2fd",
+                        "on-surface-variant": "#b9cacb",
+                        "on-tertiary-fixed-variant": "#2f2ebe",
+                        "on-primary-container": "#006970",
+                        "error-container": "#93000a",
+                        "on-primary-fixed-variant": "#004f54",
+                        "tertiary-fixed-dim": "#c0c1ff",
+                        "background": "#0b1326",
+                        "primary-container": "#00f0ff",
+                        "on-tertiary-fixed": "#07006c",
+                        "inverse-on-surface": "#283044",
+                        "surface-tint": "#00dbe9",
+                        "primary-fixed": "#7df4ff",
+                        "tertiary-fixed": "#e1e0ff",
+                        "inverse-surface": "#dae2fd",
+                        "tertiary-container": "#d7d6ff",
+                        "outline": "#849495",
+                        "surface-container": "#171f33",
+                        "on-primary-fixed": "#002022",
+                        "primary": "#dbfcff",
+                        "surface-bright": "#31394d",
+                        "on-secondary-container": "#00311f",
+                        "surface-container-lowest": "#060e20",
+                        "on-secondary-fixed": "#002113",
+                        "inverse-primary": "#006970",
+                        "surface-container-high": "#222a3d",
+                        "surface": "#0b1326",
+                        "on-error": "#690005",
+                        "surface-variant": "#2d3449"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "stack-md": "16px",
+                        "gutter": "24px",
+                        "stack-lg": "32px",
+                        "margin-desktop": "80px",
+                        "margin-mobile": "20px",
+                        "stack-sm": "8px",
+                        "unit": "4px",
+                        "stack-xl": "64px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Hanken Grotesk"],
+                        "headline-xl": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "label-caps": ["JetBrains Mono"],
+                        "body-md": ["Hanken Grotesk"],
+                        "code-sm": ["JetBrains Mono"],
+                        "headline-lg-mobile": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-xl": ["64px", { "lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "code-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #0b1326; /* theme('colors.background') */
+            color: #dae2fd; /* theme('colors.on-background') */
+        }
+        
+        /* Ambient Background */
+        .ambient-bg {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(0, 219, 233, 0.03) 0%, transparent 60%);
+            z-index: -2;
+            animation: pulse-bg 15s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulse-bg {
+            0% { transform: scale(1); opacity: 0.5; }
+            100% { transform: scale(1.1); opacity: 1; }
+        }
+
+        .code-pattern {
+            background-image: radial-gradient(#3b494b 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .glow-effect {
+            position: relative;
+        }
+        .glow-effect::before {
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            background: linear-gradient(45deg, #00f0ff, transparent 60%);
+            z-index: -1;
+            filter: blur(10px);
+            opacity: 0.1;
+            border-radius: inherit;
+            transition: opacity 0.3s ease;
+        }
+        .glow-effect:hover::before {
+            opacity: 0.3;
+        }
+
+        /* Scroll Reveal Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .ambient-bg { animation: none; }
+            .reveal {
+                transition: none;
+                opacity: 1;
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col font-body-md text-body-md relative">
+<div class="ambient-bg"></div>
+<!-- TopNavBar -->
+<nav class="w-full sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-outline-variant flex justify-between items-center px-margin-mobile md:px-margin-desktop py-stack-md max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-bold text-primary tracking-tighter">Krishan Kant Sharma</div>
+<div class="hidden md:flex gap-gutter items-center">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#projects">Projects</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#skills">Skills</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#education">Education</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#achievements">Achievements</a>
+</div>
+<div class="flex items-center gap-stack-md">
+<a class="font-label-caps text-label-caps bg-primary text-background px-4 py-2 rounded font-bold hover:bg-primary-fixed transition-all duration-300 active:scale-95" href="mailto:krishnasharma7586@gmail.com">Contact Me</a>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-colors" data-icon="terminal">terminal</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-colors" data-icon="code">code</span>
+</div>
+</nav>
+<main class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex flex-col gap-stack-xl py-stack-xl">
+<!-- Hero Section -->
+<section class="reveal relative pt-stack-xl pb-stack-xl border-b border-outline-variant flex flex-col gap-stack-md items-start visible">
+<div class="absolute inset-0 code-pattern opacity-20 pointer-events-none z-0"></div>
+<div class="z-10 w-full">
+<h1 class="font-headline-lg-mobile md:font-headline-xl text-headline-lg-mobile md:text-headline-xl text-primary mb-stack-sm">Krishan Kant Sharma</h1>
+<h2 class="font-headline-md text-headline-md text-on-surface-variant mb-stack-lg">Full Stack Developer &amp; Software Engineer</h2>
+<div class="flex flex-wrap gap-stack-md text-on-surface-variant font-code-sm text-code-sm">
+<a class="flex items-center gap-2 hover:text-primary transition-all duration-300 hover:scale-105 active:scale-95" href="https://www.linkedin.com/in/krishan-kant-sharma23/" target="_blank"><span class="material-symbols-outlined text-[18px]">link</span> LinkedIn</a>
+<a class="flex items-center gap-2 hover:text-primary transition-all duration-300 hover:scale-105 active:scale-95" href="https://github.com/krishna23-hub" target="_blank"><span class="material-symbols-outlined text-[18px]">code</span> GitHub</a>
+<span class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">mail</span> krishnasharma7586@gmail.com</span>
+<span class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">phone</span> +91-9027722706</span>
+</div>
+</div>
+</section>
+<!-- Skills Section -->
+<section class="reveal flex flex-col gap-stack-md visible" id="skills">
+<h3 class="font-headline-md text-headline-md text-primary border-b border-outline-variant pb-2 inline-block">Skills</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter mt-stack-md">
+<div class="bg-surface-container-highest p-stack-md border border-outline-variant rounded flex flex-col gap-stack-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/10">
+<h4 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Languages</h4>
+<div class="flex flex-wrap gap-2 mt-2">
+<span class="bg-surface-container border border-outline-variant text-on-surface font-code-sm text-code-sm px-2 py-1 rounded hover:border-primary transition-all duration-300 hover:scale-105 cursor-default">JavaScript</span>
+<span class="bg-surface-container border border-outline-variant text-on-surface font-code-sm text-code-sm px-2 py-1 rounded hover:border-primary transition-all duration-300 hover:scale-105 cursor-default">C</span>
+<span class="bg-surface-container border border-outline-variant text-on-surface font-code-sm text-code-sm px-2 py-1 rounded hover:border-primary transition-all duration-300 hover:scale-105 cursor-default">Python</span>
+<span class="bg-surface-container border border-outline-variant text-on-surface font-code-sm text-code-sm px-2 py-1 rounded hover:border-primary transition-all duration-300 hover:scale-105 cursor-default">CPP</span>
+</div>
+</div>
+<div class="bg-surface-container-highest p-stack-md border border-outline-variant rounded flex flex-col gap-stack-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-secondary/10">
+<h4 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Technologies</h4>
+<div class="flex flex-wrap gap-2 mt-2">
+<span class="bg-surface-container border border-outline-variant text-on-surface font-code-sm text-code-sm px-2 py-1 rounded hover:border-secondary transition-all duration-300 hover:scale-105 cursor-default">HTML</span>
+<span class="bg-surface-container border border-outline-variant text-on-surface font-code-sm text-code-sm px-2 py-1 rounded hover:border-secondary transition-all duration-300 hover:scale-105 cursor-default">CSS</span>
+<span class="bg-surface-container border border-outline-variant text-on-surface font-code-sm text-code-sm px-2 py-1 rounded hover:border-secondary transition-all duration-300 hover:scale-105 cursor-default">Streamlit</span>
+</div>
+</div>
+<div class="bg-surface-container-highest p-stack-md border border-outline-variant rounded flex flex-col gap-stack-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-tertiary-fixed-dim/10">
+<h4 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Databases &amp; Tools</h4>
+<div class="flex flex-wrap gap-2 mt-2">
+<span class="bg-surface-container border border-outline-variant text-on-surface font-code-sm text-code-sm px-2 py-1 rounded hover:border-tertiary-fixed-dim transition-all duration-300 hover:scale-105 cursor-default">PostgreSQL</span>
+<span class="bg-surface-container border border-outline-variant text-on-surface font-code-sm text-code-sm px-2 py-1 rounded hover:border-tertiary-fixed-dim transition-all duration-300 hover:scale-105 cursor-default">Git</span>
+<span class="bg-surface-container border border-outline-variant text-on-surface font-code-sm text-code-sm px-2 py-1 rounded hover:border-tertiary-fixed-dim transition-all duration-300 hover:scale-105 cursor-default">GitHub</span>
+<span class="bg-surface-container border border-outline-variant text-on-surface font-code-sm text-code-sm px-2 py-1 rounded hover:border-tertiary-fixed-dim transition-all duration-300 hover:scale-105 cursor-default">Vercel</span>
+<span class="bg-surface-container border border-outline-variant text-on-surface font-code-sm text-code-sm px-2 py-1 rounded hover:border-tertiary-fixed-dim transition-all duration-300 hover:scale-105 cursor-default">VS Code</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Projects Section -->
+<section class="reveal flex flex-col gap-stack-lg visible" id="projects">
+<h3 class="font-headline-md text-headline-md text-primary border-b border-outline-variant pb-2 inline-block">Projects</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Project 1 -->
+<div class="bg-surface-container-high border border-outline-variant rounded p-stack-md flex flex-col gap-stack-sm glow-effect relative overflow-hidden group transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-primary/20">
+<div class="flex items-center gap-2 mb-2">
+<div class="w-2 h-2 rounded-full bg-error"></div>
+<div class="w-2 h-2 rounded-full bg-secondary-container"></div>
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+</div>
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">Class Sync</h4>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Aug 2026 - Aug 2026</span>
+</div>
+<a class="text-primary hover:underline font-code-sm text-code-sm inline-flex items-center gap-1 transition-all duration-300 hover:scale-105 origin-left w-fit active:scale-95" href="https://github.com/krishna23-hub/classSync"><span class="material-symbols-outlined text-[16px]">link</span> GitHub</a>
+<ul class="list-none space-y-2 mt-4 text-on-surface-variant flex-grow">
+<li class="relative pl-4 before:content-[''] before:absolute before:left-0 before:top-2 before:w-1 before:h-1 before:bg-primary before:block">
+                            Architected an automated classroom scheduling system using FastAPI and Python, generating conflict-free class timetables based on faculty, room, course, and time-slot constraints.
+                        </li>
+<li class="relative pl-4 before:content-[''] before:absolute before:left-0 before:top-2 before:w-1 before:h-1 before:bg-primary before:block">
+                            Implemented a constraint-based scheduling engine to detect and prevent timetable conflicts.
+                        </li>
+<li class="relative pl-4 before:content-[''] before:absolute before:left-0 before:top-2 before:w-1 before:h-1 before:bg-primary before:block">
+                             Developed a real-time schedule monitoring and rescheduling workflow.
+                        </li>
+</ul>
+<div class="mt-4 pt-4 border-t border-outline-variant flex flex-wrap gap-2 items-center">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Stack:</span>
+<span class="font-code-sm text-code-sm bg-surface-container px-2 py-1 rounded border border-outline-variant text-primary-fixed-dim transition-colors hover:border-primary-fixed-dim">Python</span>
+<span class="font-code-sm text-code-sm bg-surface-container px-2 py-1 rounded border border-outline-variant text-primary-fixed-dim transition-colors hover:border-primary-fixed-dim">FastAPI</span>
+<span class="font-code-sm text-code-sm bg-surface-container px-2 py-1 rounded border border-outline-variant text-primary-fixed-dim transition-colors hover:border-primary-fixed-dim">HTML/CSS/JS</span>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="bg-surface-container-high border border-outline-variant rounded p-stack-md flex flex-col gap-stack-sm glow-effect relative overflow-hidden group transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-primary/20">
+<div class="flex items-center gap-2 mb-2">
+<div class="w-2 h-2 rounded-full bg-error"></div>
+<div class="w-2 h-2 rounded-full bg-secondary-container"></div>
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+</div>
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">CodeSense AI</h4>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Aug 2026 - Aug 2026</span>
+</div>
+<a class="text-primary hover:underline font-code-sm text-code-sm inline-flex items-center gap-1 transition-all duration-300 hover:scale-105 origin-left w-fit active:scale-95" href="https://github.com/krishna23-hub/CodeSense"><span class="material-symbols-outlined text-[16px]">link</span> GitHub</a>
+<ul class="list-none space-y-2 mt-4 text-on-surface-variant flex-grow">
+<li class="relative pl-4 before:content-[''] before:absolute before:left-0 before:top-2 before:w-1 before:h-1 before:bg-primary before:block">
+                            Developed an AI-powered code analysis tool for code explanation, error detection, debugging, and code improvement using Gemini API.
+                        </li>
+<li class="relative pl-4 before:content-[''] before:absolute before:left-0 before:top-2 before:w-1 before:h-1 before:bg-primary before:block">
+                            Implemented automated analysis to identify programming errors, explain their causes, generate corrected code.
+                        </li>
+<li class="relative pl-4 before:content-[''] before:absolute before:left-0 before:top-2 before:w-1 before:h-1 before:bg-primary before:block">
+                             Built a FastAPI backend with a responsive HTML, CSS, and JavaScript frontend.
+                        </li>
+</ul>
+<div class="mt-4 pt-4 border-t border-outline-variant flex flex-wrap gap-2 items-center">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Stack:</span>
+<span class="font-code-sm text-code-sm bg-surface-container px-2 py-1 rounded border border-outline-variant text-secondary-fixed-dim transition-colors hover:border-secondary-fixed-dim">HTML</span>
+<span class="font-code-sm text-code-sm bg-surface-container px-2 py-1 rounded border border-outline-variant text-secondary-fixed-dim transition-colors hover:border-secondary-fixed-dim">CSS</span>
+<span class="font-code-sm text-code-sm bg-surface-container px-2 py-1 rounded border border-outline-variant text-secondary-fixed-dim transition-colors hover:border-secondary-fixed-dim">JavaScript</span>
+<span class="font-code-sm text-code-sm bg-surface-container px-2 py-1 rounded border border-outline-variant text-secondary-fixed-dim transition-colors hover:border-secondary-fixed-dim">Python</span>
+<span class="font-code-sm text-code-sm bg-surface-container px-2 py-1 rounded border border-outline-variant text-secondary-fixed-dim transition-colors hover:border-secondary-fixed-dim">FastAPI</span>
+</div>
+</div>
+<!-- Project 3 -->
+<div class="bg-surface-container-high border border-outline-variant rounded p-stack-md flex flex-col gap-stack-sm glow-effect relative overflow-hidden group transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-primary/20">
+<div class="flex items-center gap-2 mb-2">
+<div class="w-2 h-2 rounded-full bg-error"></div>
+<div class="w-2 h-2 rounded-full bg-secondary-container"></div>
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+</div>
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">Secure Credential Generator</h4>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Jul 2026 – Jul 2026</span>
+</div>
+<a class="text-primary hover:underline font-code-sm text-code-sm inline-flex items-center gap-1 transition-all duration-300 hover:scale-105 origin-left w-fit active:scale-95" href="https://github.com/krishna23-hub/Password-generator"><span class="material-symbols-outlined text-[16px]">link</span> GitHub</a>
+<ul class="list-none space-y-2 mt-4 text-on-surface-variant flex-grow">
+<li class="relative pl-4 before:content-[''] before:absolute before:left-0 before:top-2 before:w-1 before:h-1 before:bg-primary before:block">
+                            Developed a customizable password generator with adjustable length and selectable character types including uppercase, lowercase, numbers, and symbols.
+                        </li>
+<li class="relative pl-4 before:content-[''] before:absolute before:left-0 before:top-2 before:w-1 before:h-1 before:bg-primary before:block">
+                            Implemented dynamic password generation using JavaScript, ensuring randomized and varied passwords based on user-selected criteria.
+                        </li>
+<li class="relative pl-4 before:content-[''] before:absolute before:left-0 before:top-2 before:w-1 before:h-1 before:bg-primary before:block">
+                             Added interactive DOM-based functionality to update password settings and generate passwords instantly with a single click.
+                        </li>
+</ul>
+<div class="mt-4 pt-4 border-t border-outline-variant flex flex-wrap gap-2 items-center">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Stack:</span>
+<span class="font-code-sm text-code-sm bg-surface-container px-2 py-1 rounded border border-outline-variant text-primary-fixed-dim transition-colors hover:border-primary-fixed-dim">HTML</span>
+<span class="font-code-sm text-code-sm bg-surface-container px-2 py-1 rounded border border-outline-variant text-primary-fixed-dim transition-colors hover:border-primary-fixed-dim">CSS</span>
+<span class="font-code-sm text-code-sm bg-surface-container px-2 py-1 rounded border border-outline-variant text-primary-fixed-dim transition-colors hover:border-primary-fixed-dim">JavaScript</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Education Section -->
+<section class="reveal flex flex-col gap-stack-lg visible" id="education">
+<h3 class="font-headline-md text-headline-md text-primary border-b border-outline-variant pb-2 inline-block">Education</h3>
+<div class="flex flex-col gap-stack-md">
+<div class="bg-surface-container-high border border-outline-variant rounded p-stack-md flex flex-col gap-stack-sm glow-effect relative overflow-hidden group transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-primary/20">
+<div class="flex justify-between items-start mb-2 flex-col md:flex-row gap-2">
+<div>
+<h4 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">Lovely Professional University</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Bachelor of Technology - Computer Science and Engineering; CGPA: 8.8</p>
+</div>
+<div class="flex flex-col items-start md:items-end font-code-sm text-code-sm text-on-surface-variant">
+<span class="">Aug 2025 - Present</span>
+<span class="">Phagwara, Punjab</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-high border border-outline-variant rounded p-stack-md flex flex-col gap-stack-sm glow-effect relative overflow-hidden group transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-primary/20">
+<div class="flex justify-between items-start mb-2 flex-col md:flex-row gap-2">
+<div>
+<h4 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">K.C.M. School</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Higher Secondary Education; Percentage: 76%</p>
+</div>
+<div class="flex flex-col items-start md:items-end font-code-sm text-code-sm text-on-surface-variant">
+<span class="">April 2023 - Mar 2025</span>
+<span class="">Moradabad, Uttar Pradesh</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-high border border-outline-variant rounded p-stack-md flex flex-col gap-stack-sm glow-effect relative overflow-hidden group transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-primary/20">
+<div class="flex justify-between items-start mb-2 flex-col md:flex-row gap-2">
+<div>
+<h4 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">K.C.M. School</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Secondary Education; Percentage: 84.8%</p>
+</div>
+<div class="flex flex-col items-start md:items-end font-code-sm text-code-sm text-on-surface-variant">
+<span class="">April 2022 - Mar 2023</span>
+<span class="">Moradabad, Uttar Pradesh</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Achievements Section -->
+<section class="reveal flex flex-col gap-stack-lg visible" id="achievements">
+<h3 class="font-headline-md text-headline-md text-primary border-b border-outline-variant pb-2 inline-block">Achievements &amp; Certificates</h3>
+<div class="bg-surface-container-high border border-outline-variant rounded p-stack-md glow-effect relative overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-primary/20">
+<ul class="list-none space-y-4 text-on-surface-variant"><li class="relative pl-6 before:content-[''] before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:rounded-sm before:bg-secondary before:block"><div class="flex justify-between items-start flex-col md:flex-row"><a href="https://drive.google.com/file/d/13Uf3U0WkOtKMIYYBo7515LM06SdJEA4d/view?usp=drivesdk" target="_blank" class="text-on-surface hover:text-primary hover:underline transition-colors duration-300">Introduction to Artificial Intelligence | Infosys</a><span class="font-code-sm text-code-sm text-on-surface-variant">Mar 2026</span></div></li>
+<li class="relative pl-6 before:content-[''] before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:rounded-sm before:bg-secondary before:block">
+<div class="flex justify-between items-start flex-col md:flex-row">
+<a href="https://drive.google.com/file/d/1wY4ERpv61BHFYx84P22-0jTTrj5MuUoN/view?usp=drivesdk" target="_blank" class="text-on-surface hover:text-primary hover:underline transition-colors duration-300">Infosys Spring Board Python</a>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Feb 2026</span>
+</div>
+</li>
+<li class="relative pl-6 before:content-[''] before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:rounded-sm before:bg-secondary before:block">
+<div class="flex justify-between items-start flex-col md:flex-row">
+<a href="https://drive.google.com/file/d/1P3FI-85LXQCptVRsCDSp5uxPEJOmU4xv/view?usp=drivesdk" target="_blank" class="text-on-surface hover:text-primary hover:underline transition-colors duration-300">CPP Programming Course (GFG)</a>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Jul 2026</span>
+</div>
+</li>
+<li class="relative pl-6 before:content-[''] before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:rounded-sm before:bg-primary before:block">
+<span class="text-on-surface">Solved more than 150+ programming problems on online coding platforms during regular practice and learning.</span>
+</li>
+<li class="relative pl-6 before:content-[''] before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:rounded-sm before:bg-primary before:block">
+<span class="text-on-surface">Achieved the 1 Month Badge on LeetCode by maintaining consistent daily problem solving over time.</span>
+</li>
+</ul>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-stack-xl mt-stack-xl border-t border-outline-variant bg-surface-container-low flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop gap-stack-md font-body-md text-body-md">
+<div class="font-headline-md text-headline-md font-black text-on-surface">Krishan Kant Sharma</div>
+<div class="text-on-surface-variant font-code-sm text-code-sm">© 2026 Krishan Kant Sharma. Built with precision and code.</div>
+<div class="flex gap-4">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="https://github.com/krishna23-hub">GitHub</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="https://www.linkedin.com/in/krishan-kant-sharma23/">LinkedIn</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="krishnaharma7586@gmail.com">Email</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="https://drive.google.com/file/d/1tYFx7pht3Wi0hw0z9lvGu6z-JP2bpz1R/view?usp=drivesdk">Resume</a>
+</div>
+</footer>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Scroll Reveal
+        const reveals = document.querySelectorAll('.reveal');
+        
+        const revealOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Stop observing once visible if you don't want it to hide again on scroll up
+                    // observer.unobserve(entry.target); 
+                }
+            });
+        }, revealOptions);
+
+        reveals.forEach(reveal => {
+            revealOnScroll.observe(reveal);
+        });
+        
+        // Trigger for items already in view on load
+        setTimeout(() => {
+             reveals.forEach(reveal => {
+                const rect = reveal.getBoundingClientRect();
+                if(rect.top < window.innerHeight) {
+                    reveal.classList.add('visible');
+                }
+            });
+        }, 100);
+    });
+</script>
+
+
+</body></html>
